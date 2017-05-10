@@ -1,0 +1,8 @@
+.news-cat-widget{
+    margin-bottom:20px;
+}
+
+.news-cat-widget .ant-menu{
+    width:100%;
+    border-right:0px
+}

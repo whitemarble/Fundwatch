@@ -1,0 +1,32 @@
+.footer-left{
+    display:inline-block
+}
+.footer-left ul li{
+    display:inline-block;
+    margin-right:15px;
+    font-size:0.8rem;
+}
+.footer-left ul li a{
+    color:#fff
+}
+
+.footer-right{
+    float:right;
+    font-size:0.8rem;
+    color:#fff;
+}
+
+@media screen and (max-width: 767px) {
+    .footer-left{
+        display:block;
+        text-align:center;
+    }
+    .footer-right{
+        float:none;
+        display:block;
+        text-align:center;
+    }
+    .footer-left ul li{
+        margin-right:10px;
+    }
+}

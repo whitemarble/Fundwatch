@@ -1,0 +1,27 @@
+.news-list-widget ul{
+    padding:5px 20px;
+    font-size:0.9rem;
+
+}
+
+.news-list-widget ul li{
+    margin-bottom:10px
+
+}
+
+.news-list-widget ul li i{
+    font-size:12px;
+    margin-right:3px
+}
+
+.ant-card-head-title{
+    font-weight:600
+}
+
+.news-list-widget{
+    margin-bottom:20px;
+}
+
+.news-list-widget .ant-card-head,.news-list-widget .ant-card-body{
+    background:#fbfbfb;
+}
