@@ -11,11 +11,6 @@ import MainMenu from './containers/MainMenu';
 import MobileMenu from './containers/MobileMenu';
 
 
-
-
-
-
-
 const { Header, Footer, Content } = Layout;
 
 class App extends Component {

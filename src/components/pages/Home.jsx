@@ -8,13 +8,14 @@ import TopNews from '../blocks/TopNews';
 import NewsGrid from '../blocks/NewsGrid';
 import NewsTabs from '../blocks/NewsTabs';
 
+import {WP} from '../../WP';
 
 class Home extends Component {
     render() {
         return (
             <Row gutter={24}>
                 <Col xs={24} sm={16} lg={18} className="main-content">
-                    <TopNews />
+                    <TopNews posts={WP.posts()}/>
                     <NewsGrid />
                     <NewsTabs />
                 </Col>

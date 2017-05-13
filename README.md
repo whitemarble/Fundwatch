@@ -16,4 +16,5 @@
     <li>"redux-thunk": "^2.2.0"</li>
     <li>"react-document-meta": "^2.1.2"</li>
     <li>"react-document-title": "^2.0.3"</li>
+    <li>"wpapi": "^1.0.3"</li>
 </ul>
