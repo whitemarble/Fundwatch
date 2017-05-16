@@ -1,0 +1,26 @@
+.news-type{
+    width:100%
+}
+
+.news-type-icon{
+    position:absolute;
+    top:5%;
+    right:5%;
+    padding:6px 10px 3px 10px;
+    background:#3264ae;
+    border-radius: 3px;
+    z-index:9;
+}
+
+.line{
+    position:absolute;
+    top:10%;
+    height:2px;
+    background:#3264ae;
+    width:100%;
+}
+
+.news-type-icon i{
+    font-size:1.4rem;
+    color:#fff;
+}

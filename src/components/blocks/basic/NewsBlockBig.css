@@ -30,35 +30,3 @@
     color:#fff;
 }
 
-.news-type{
-    position:absolute;
-    top:10px;
-    right:10px;
-    padding:6px 10px 3px 10px;
-    background:#3264ae;
-    border-radius: 3px;
-    z-index:9;
-}
-
-.line{
-    position:absolute;
-    top:21px;
-    height:2px;
-    background:#3264ae;
-    width:100%;
-}
-
-.news-type i{
-    font-size:1.4rem;
-    color:#fff;
-}
-
-@media screen and (max-width: 992px) {
-    .news-type{
-        top:20px;
-        right:30px;
-    }
-    .line{
-        top:32px;
-    }
-}

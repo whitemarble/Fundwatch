@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Card,Icon,Menu} from 'antd';
+import {Card,Menu} from 'antd';
 import {Link} from 'react-router-dom';
 
 import './NewsCatWidget.css'

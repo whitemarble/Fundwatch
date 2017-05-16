@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
-import './Home.css';
+import './SinglePost.css';
 
 
 import NewsListWidget from '../widgets/NewsListWidget';
 import TopNews from '../blocks/TopNews';
 import NewsGrid from '../blocks/NewsGrid';
 import NewsTabs from '../blocks/NewsTabs';
+import PostContent from '../blocks/PostContent';
 
 import {WP} from '../../WP';
 
-class Home extends Component {
+class SinglePost extends Component {
     render() {
         return (
             <Row gutter={24}>
                 <Col xs={24} sm={16} lg={18} className="main-content">
-                    <TopNews posts={WP.posts().param('categories',5).param('per_page',5)}/>
-                    <NewsGrid posts={WP.posts().param('categories',4).param('per_page',3)}/>
-                    <NewsTabs />
+                <PostContent post={WP.posts().param('slug',this.props.match.params.slug)}/>
+                    
                 </Col>
 
                 <Col xs={0} sm={8} lg={6} className="sidebar">
@@ -30,4 +30,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default SinglePost;

@@ -1,39 +1,29 @@
 import React, { Component } from 'react';
 import { Row, Col, Carousel } from 'antd';
 
-import NewsBlockBig from './NewsBlockBig';
+import NewsBlockBig from './basic/NewsBlockBig';
 
 import './TopNews.css';
-import {WP} from '../../WP';
-WP.posts().then(data=>
- console.log(data)
-).catch((err)=>{
-console.log(err)
-})
-WP.media(12).then((data)=>{
- //console.log(data);
- //console.log(data[0].media_details.sizes.medium.source_url)
-}).catch((err)=>{
-console.log(err)
-})
 
-console.log(WP.media(12))
+
+
 class TopNews extends Component {
     constructor(props) {
         super(props);
         this.state = {loading: true, error: null, posts: null};
         this.props.posts.then(
                 data => {
-                    console.log(data);
                     this.setState({loading: false, posts: data})
-                    console.log(this.state.loading);
                 }
             ).catch(
                 error => this.setState({loading: false, error: error})
             );           
     }
 
+    
+
     render() {
+
         if(this.state.loading)
             return (<div>loading</div>);
         else
@@ -45,22 +35,37 @@ class TopNews extends Component {
                             <Carousel autoplay>
                                 <div>
                                     <NewsBlockBig title={this.state.posts[0].title.rendered}
-                                     media={WP.media(12)}
+                                     mediaID={this.state.posts[0].featured_media}
+                                     mediaSize="full" postType={this.state.posts[0].format}
+                                     slug={this.state.posts[0].slug}
                                     />
                                 </div>
                                 <div>
-                                    <NewsBlockBig title={this.state.posts[0].title.rendered}
-                                     media={WP.media(12)}
+                                    <NewsBlockBig title={this.state.posts[1].title.rendered}
+                                     mediaID={this.state.posts[1].featured_media}
+                                     mediaSize="full" postType={this.state.posts[1].format}
+                                     slug={this.state.posts[1].slug}
+                                    />
+                                </div>
+                                <div>
+                                    <NewsBlockBig title={this.state.posts[2].title.rendered}
+                                     mediaID={this.state.posts[2].featured_media}
+                                     mediaSize="full" postType={this.state.posts[2].format}
+                                     slug={this.state.posts[2].slug}
                                     />
                                 </div>
                             </Carousel>
                         </Col>
                         <Col xs={24} md={8}>
-                            <NewsBlockBig title={this.state.posts[0].title.rendered}
-                             media={WP.media(12)}
+                            <NewsBlockBig title={this.state.posts[3].title.rendered}
+                             mediaID={this.state.posts[3].featured_media}
+                             mediaSize="medium" postType={this.state.posts[3].format}
+                             slug={this.state.posts[0].slug}
                             />
-                            <NewsBlockBig title={this.state.posts[0].title.rendered}
-                             media={WP.media(12)}
+                            <NewsBlockBig title={this.state.posts[4].title.rendered}
+                             mediaID={this.state.posts[4].featured_media}
+                             mediaSize="medium" postType={this.state.posts[4].format}
+                             slug={this.state.posts[0].slug}
                             />
                         </Col>
                     </Row>

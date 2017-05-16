@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Button} from 'antd';
 import './NewsList.css';
-import NewsListItem from './NewsListItem';
+import NewsListItem from './basic/NewsListItem';
 
 class NewsBlockHorizon extends Component {
     state = {

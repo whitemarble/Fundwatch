@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import {Row,Col,Icon} from 'antd';
 
+import WPimg from './WPimg';
+
 import './NewsListItem.css';
 
-import testimg from '../../../public/assets/img/test-news-image.jpg';
+import testimg from '../../../../public/assets/img/test-news-image.jpg';
 
 class NewsListItem extends Component {
     render() {
