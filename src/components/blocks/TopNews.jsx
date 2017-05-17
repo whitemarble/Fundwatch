@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Carousel } from 'antd';
+import { Spin } from 'antd';
 
 import NewsBlockBig from './basic/NewsBlockBig';
 
@@ -10,14 +11,16 @@ import './TopNews.css';
 class TopNews extends Component {
     constructor(props) {
         super(props);
-        this.state = {loading: true, error: null, posts: null};
+        this.state = {loading: true, error: null, posts: null};   
+    }
+    componentDidMount(){
         this.props.posts.then(
                 data => {
                     this.setState({loading: false, posts: data})
                 }
             ).catch(
                 error => this.setState({loading: false, error: error})
-            );           
+            );        
     }
 
     
@@ -25,7 +28,7 @@ class TopNews extends Component {
     render() {
 
         if(this.state.loading)
-            return (<div>loading</div>);
+            return (<div className="loading-spin"><Spin size="large" /></div>);
         else
         {
             return (
@@ -35,21 +38,21 @@ class TopNews extends Component {
                             <Carousel autoplay>
                                 <div>
                                     <NewsBlockBig title={this.state.posts[0].title.rendered}
-                                     mediaID={this.state.posts[0].featured_media}
+                                     media={this.state.posts[0].better_featured_image}
                                      mediaSize="full" postType={this.state.posts[0].format}
                                      slug={this.state.posts[0].slug}
                                     />
                                 </div>
                                 <div>
                                     <NewsBlockBig title={this.state.posts[1].title.rendered}
-                                     mediaID={this.state.posts[1].featured_media}
+                                     media={this.state.posts[1].better_featured_image}
                                      mediaSize="full" postType={this.state.posts[1].format}
                                      slug={this.state.posts[1].slug}
                                     />
                                 </div>
                                 <div>
                                     <NewsBlockBig title={this.state.posts[2].title.rendered}
-                                     mediaID={this.state.posts[2].featured_media}
+                                     media={this.state.posts[2].better_featured_image}
                                      mediaSize="full" postType={this.state.posts[2].format}
                                      slug={this.state.posts[2].slug}
                                     />
@@ -58,12 +61,12 @@ class TopNews extends Component {
                         </Col>
                         <Col xs={24} md={8}>
                             <NewsBlockBig title={this.state.posts[3].title.rendered}
-                             mediaID={this.state.posts[3].featured_media}
+                             media={this.state.posts[3].better_featured_image}
                              mediaSize="medium" postType={this.state.posts[3].format}
                              slug={this.state.posts[0].slug}
                             />
                             <NewsBlockBig title={this.state.posts[4].title.rendered}
-                             mediaID={this.state.posts[4].featured_media}
+                             media={this.state.posts[4].better_featured_image}
                              mediaSize="medium" postType={this.state.posts[4].format}
                              slug={this.state.posts[0].slug}
                             />

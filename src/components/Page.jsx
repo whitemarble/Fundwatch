@@ -9,10 +9,10 @@ class Page extends Component {
     render() {
         return (
             <div className="container" >
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/news" component={News}/>
-                <Route exact path="/home-loans" component={HomeLoans}/>
-                <Route exact path="/:slug" component={SinglePost}/>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/news" component={News} />
+                <Route exact path="/home-loans" component={HomeLoans} />
+                <Route exact path="/article/:slug" component={SinglePost} />
             </div>
         );
     }

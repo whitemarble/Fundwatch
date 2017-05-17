@@ -19,6 +19,12 @@
     padding:0px 20px;
 }
 
+.loading-spin{
+    text-align:center;
+    position:relative;
+    margin-top:20%;
+}
+
 
 @media screen and (max-width: 767px) {
     .container{

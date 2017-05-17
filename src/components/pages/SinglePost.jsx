@@ -16,7 +16,7 @@ class SinglePost extends Component {
         return (
             <Row gutter={24}>
                 <Col xs={24} sm={16} lg={18} className="main-content">
-                <PostContent post={WP.posts().param('slug',this.props.match.params.slug)}/>
+                <PostContent post={WP.posts().param('slug',this.props.match.params.slug).param('_embed',true)} />
                     
                 </Col>
 

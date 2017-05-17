@@ -1,23 +1,37 @@
 import React, { Component } from 'react';
+import { Spin } from 'antd';
+
 import './WPimg.css';
 
 import ImgHolder from '../../../../public/assets/img/img.svg';
 class WPimg extends Component {
     constructor(props) {
         super(props);
-        this.state = {loading: true, error: null, image: null};
-        this.props.media.then(
+        this.state = {loading: true, error: null, image: null};    
+    }
+
+    componentDidMount(){
+        if(this.props.media){
+            this.setState({loading: false, image: this.props.media})
+        }
+        else if(!this.props.media && this.props.mediaP){
+            this.props.mediaP.then(
                 data => {
                     this.setState({loading: false, image: data})
                 }
             ).catch(
                 error => this.setState({loading: false, error: error})
-            );      
+            );     
+        }
+        else{
+            this.setState({loading: false, image: null})
+        }
+         
     }
     
     render() { 
         if(this.state.loading)
-            return (<div>loading...</div>);
+            return (<div className="loading-spin"><Spin size="large" /></div>);
         else if(!this.state.image)
             return (
                     <img src={ImgHolder} alt="img" className='wpimg'/>
@@ -31,13 +45,9 @@ class WPimg extends Component {
                 return (
                     <img src={this.state.image.media_details.sizes.medium.source_url} alt="img" className='wpimg'/>
                 );
-            if(this.props.size === 'large')
-                return (
-                    <img src={this.state.image.media_details.sizes.medium_large.source_url} alt="img" className='wpimg'/>
-                );
             if(this.props.size === 'full')
                 return (
-                    <img src={this.state.image.media_details.sizes.full.source_url} alt="img" className='wpimg'/>
+                    <img src={this.state.image.source_url} alt="img" className='wpimg'/>
                 );
         }
         
