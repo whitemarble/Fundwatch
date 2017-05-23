@@ -9,12 +9,11 @@ class NewsCatWidget extends Component {
         return (
             <div className="news-cat-widget">
                 <Card title="Categories" bodyStyle={{ padding: 0 }}>
-                    <Menu mode="inline">
-                        <Menu.Item>News Catogory 1</Menu.Item>
-                        <Menu.Item>News Catogory 2</Menu.Item>
-                        <Menu.Item>News Catogory 3</Menu.Item>
-                        <Menu.Item>News Catogory 4</Menu.Item>
-                        <Menu.Item>News Catogory 5</Menu.Item>      
+                    <Menu mode="vertical">
+                        <Menu.Item><Link to="/category/news">NEWS</Link></Menu.Item>
+                        <Menu.Item><Link to="/category/video">VIDEO</Link></Menu.Item>
+                        <Menu.Item><Link to="/category/sports">SPORTS</Link></Menu.Item>
+                        <Menu.Item><Link to="/category/music">MUSIC</Link></Menu.Item>
                     </Menu>
                 </Card>
 

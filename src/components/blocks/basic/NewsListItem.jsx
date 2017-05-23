@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Row,Col,Icon} from 'antd';
+import {Link} from 'react-router-dom';
 
 import WPimg from './WPimg';
 
@@ -14,18 +15,18 @@ class NewsListItem extends Component {
                 <Row gutter={16}>
                     <Col sm={24} md={8}>
                         <div className="news-img">
-                            <img src={testimg} alt='pic'/>
+                            <Link to={"/article/"+this.props.slug}>
+                            <WPimg media={this.props.media} size={this.props.mediaSize} />
+                            </Link>
                         </div>
                     </Col>
                     <Col sm={24} md={16}>
-                        <h1>TRANSPORT INDEX WARNS OF TOUGHER TIMES</h1>
+                        <h1><Link to={"/article/"+this.props.slug}>{this.props.title}</Link></h1>
                         <div className="news-meta">
-                            <Icon type="clock-circle-o" /> 10/May/2017 | <Icon type="user" /> admin
+                            <Icon type="clock-circle-o" /> {this.props.date} | <Icon type="user" /> {this.props.author}
                             <div className="news-share"><Icon type="share-alt" /> <Icon type="android-o" /> <Icon type="apple-o" /> <Icon type="windows-o" /></div>
                         </div>
-                        <p>The reason is because goods and raw materials are moved some three to six months ahead of sales, 
-                            and are booked onto trains and ships for transport. Lower transport profits means less goods are 
-                            moving and that means the economy could be turning down</p>
+                        <p dangerouslySetInnerHTML={{__html: this.props.excerpt}}></p>
                     </Col>
                 </Row>
             </li>

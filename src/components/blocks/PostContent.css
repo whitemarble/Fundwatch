@@ -36,3 +36,13 @@
     font-size: 0.8rem;
     border-radius: 3px;
 }
+
+.post-meta i{
+    color:#3264ae
+}
+
+
+
+.post-meta .category{
+    float:right
+}

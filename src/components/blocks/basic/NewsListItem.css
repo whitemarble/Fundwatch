@@ -20,8 +20,12 @@
     border-bottom:solid #ddd 1px;
 }
 
-.news-list-item h1{
+.news-list-item h1 a{
     color:#444
+}
+
+.news-list-item h1 a:hover{
+    color:#3264ae
 }
 
 .news-list-item p{

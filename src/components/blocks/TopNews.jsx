@@ -17,6 +17,7 @@ class TopNews extends Component {
         this.props.posts.then(
                 data => {
                     this.setState({loading: false, posts: data})
+                    console.log(data)
                 }
             ).catch(
                 error => this.setState({loading: false, error: error})
@@ -31,45 +32,43 @@ class TopNews extends Component {
             return (<div className="loading-spin"><Spin size="large" /></div>);
         else
         {
+            const posts = this.state.posts.map(
+                (post) =>{
+                    console.log(post._embedded["wp:featuredmedia"]);
+                    if(post._embedded["wp:featuredmedia"] != undefined){
+                        return(
+                        <div key={post.id}>
+                            <NewsBlockBig title={post.title.rendered}
+                                media={post._embedded["wp:featuredmedia"][0]}
+                                mediaSize="medium" postType={post.format}
+                                slug={post.slug}
+                            />
+                        </div>)
+                    }else{
+                        return(
+                        <div key={post.id}>
+                            <NewsBlockBig title={post.title.rendered}
+                                mediaSize="medium" postType={post.format}
+                                slug={post.slug}
+                            />
+                        </div>)
+                    }
+                    
+                }
+            );
             return (
                 <div>
                     <Row gutter={16} className="top-news">
                         <Col xs={24} md={16} style={{marginBottom:'10px'}}>
                             <Carousel autoplay>
-                                <div>
-                                    <NewsBlockBig title={this.state.posts[0].title.rendered}
-                                     media={this.state.posts[0].better_featured_image}
-                                     mediaSize="full" postType={this.state.posts[0].format}
-                                     slug={this.state.posts[0].slug}
-                                    />
-                                </div>
-                                <div>
-                                    <NewsBlockBig title={this.state.posts[1].title.rendered}
-                                     media={this.state.posts[1].better_featured_image}
-                                     mediaSize="full" postType={this.state.posts[1].format}
-                                     slug={this.state.posts[1].slug}
-                                    />
-                                </div>
-                                <div>
-                                    <NewsBlockBig title={this.state.posts[2].title.rendered}
-                                     media={this.state.posts[2].better_featured_image}
-                                     mediaSize="full" postType={this.state.posts[2].format}
-                                     slug={this.state.posts[2].slug}
-                                    />
-                                </div>
+                                {posts[0]}
+                                {posts[1]}
+                                {posts[2]}
                             </Carousel>
                         </Col>
                         <Col xs={24} md={8}>
-                            <NewsBlockBig title={this.state.posts[3].title.rendered}
-                             media={this.state.posts[3].better_featured_image}
-                             mediaSize="medium" postType={this.state.posts[3].format}
-                             slug={this.state.posts[0].slug}
-                            />
-                            <NewsBlockBig title={this.state.posts[4].title.rendered}
-                             media={this.state.posts[4].better_featured_image}
-                             mediaSize="medium" postType={this.state.posts[4].format}
-                             slug={this.state.posts[0].slug}
-                            />
+                            {posts[3]}
+                            {posts[4]}
                         </Col>
                     </Row>
                 </div>

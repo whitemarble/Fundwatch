@@ -11,17 +11,17 @@ class WPimg extends Component {
     }
 
     componentDidMount(){
-        if(this.props.media){
-            this.setState({loading: false, image: this.props.media})
-        }
-        else if(!this.props.media && this.props.mediaP){
+        if(this.props.mediaP){
             this.props.mediaP.then(
                 data => {
                     this.setState({loading: false, image: data})
                 }
             ).catch(
                 error => this.setState({loading: false, error: error})
-            );     
+            );    
+        }
+        else if(this.props.media){
+            this.setState({loading: false, image: this.props.media})
         }
         else{
             this.setState({loading: false, image: null})

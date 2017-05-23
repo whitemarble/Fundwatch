@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
-import {Router, Route} from 'react-router-dom';
+import {Router, Route, Switch} from 'react-router-dom';
 import Home from './pages/Home';
 import News from './pages/News';
 import HomeLoans from './pages/HomeLoans';
 import SinglePost from './pages/SinglePost';
+import PostCategory from './pages/PostCategory';
+import NoMatch from './pages/NoMatch';
 
 class Page extends Component {
     render() {
         return (
             <div className="container" >
-                <Route exact path="/" component={Home} />
-                <Route exact path="/news" component={News} />
-                <Route exact path="/home-loans" component={HomeLoans} />
-                <Route exact path="/article/:slug" component={SinglePost} />
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/news" component={News} />
+                    <Route path="/home-loans" component={HomeLoans} />
+                    <Route path="/article/:slug" component={SinglePost} />
+                    <Route path="/category/:slug" component={PostCategory} />
+                    <Route component={NoMatch}/>
+                </Switch>
             </div>
         );
     }
