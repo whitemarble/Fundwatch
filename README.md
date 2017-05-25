@@ -14,7 +14,6 @@
     <li>"redux": "^3.6.0"</li>
     <li>"redux-promise": "^0.5.3"</li>
     <li>"redux-thunk": "^2.2.0"</li>
-    <li>"react-document-meta": "^2.1.2"</li>
-    <li>"react-document-title": "^2.0.3"</li>
+    <li>"react-helmet": "^5.1.3"</li>
     <li>"wpapi": "^1.0.3"</li>
 </ul>

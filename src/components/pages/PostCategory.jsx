@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Row,Col,Spin} from 'antd';
+import {Helmet} from "react-helmet";
 import './PostCategory.css';
 
 
@@ -47,6 +48,11 @@ class CategoryContent extends Component{
                     <h1 style={{textAlign:"center",textTransform:"uppercase",fontSize:"2rem",color:"#3264ae"}}>{this.state.category[0].name}</h1>
                     
                     <NewsList current="1" pagesize="10" posts={WP.posts().param('categories',this.state.category[0].id).perPage(10).page(1).embed()}/>
+
+                    <Helmet>
+                    <title>{this.state.category[0].name} | Fundwatch</title>
+                    <meta name="description" content={this.state.category[0].name} />
+                    </Helmet>
                 </div>
             );
         }

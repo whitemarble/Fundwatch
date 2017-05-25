@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Row,Col} from 'antd';
+import {Helmet} from "react-helmet";
 import './News.css';
 
 import NewsListWidget from '../widgets/NewsListWidget';
@@ -20,6 +21,10 @@ class News extends Component {
                     <NewsCatWidget />
                     <NewsListWidget title="Recent News" link="/news" posts={WP.posts().param('per_page',5).embed()}/>
                 </Col>
+                <Helmet>
+                    <title>News | Fundwatch</title>
+                    <meta name="description" content="News | Fundwatch" />
+                </Helmet>
             </Row>
         );
     }

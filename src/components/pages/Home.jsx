@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import './Home.css';
+import {Helmet} from "react-helmet";
 
 
 import TopNews from '../blocks/TopNews';
@@ -22,6 +23,11 @@ class Home extends Component {
                 <Col xs={0} sm={8} lg={6} className="sidebar">
                     <h1>Sidebar</h1>
                 </Col>
+
+                <Helmet>
+                    <title>Fundwatch</title>
+                    <meta name="description" content="Fundwatch Website Description" />
+                </Helmet>
             </Row>
         );
     }

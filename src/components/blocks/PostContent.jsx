@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import WPimg from './basic/WPimg';
 import { Breadcrumb, Icon, Tag, Spin } from 'antd';
 import {Link} from 'react-router-dom';
+import {Helmet} from "react-helmet";
+
 
 import NoMatch from '../pages/NoMatch';
 
@@ -62,6 +64,11 @@ class PostContent extends Component {
                         <WPimg media={postImg} size="full"/>
                     </div>
                     <div className="post-content" dangerouslySetInnerHTML={{__html: this.state.post[0].content.rendered}}></div>
+
+                    <Helmet>
+                    <title>{this.state.post[0].title.rendered} | Fundwatch</title>
+                    <meta name="description" content={this.state.post[0].excerpt} />
+                    </Helmet>
                 </div>
             );
         }
