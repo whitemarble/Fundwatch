@@ -5,12 +5,19 @@ import {bindActionCreators} from 'redux'
 import { connect } from 'react-redux'
 import logo from '../../public/assets/img/logo.png';
 import flagCN from '../../public/assets/img/flagCN.png';
-import {Link} from 'react-router-dom';
+import {Link,Redirect} from 'react-router-dom';
 import {MMopen,MMclose} from '../actions/MenuActions'
+import { createBrowserHistory } from 'history'
 
 const Search = Input.Search;
 
 class MainMenu extends Component {
+    mySearch = (value)=>{
+        let history = createBrowserHistory();
+        history.push("/search/"+value);
+        history.go()
+    }
+
     render() {
         const{mobileOpen,mobileClose} = this.props;
         return (
@@ -31,7 +38,7 @@ class MainMenu extends Component {
                             <a href="http://www.fundstarnz.com/" style={{marginRight:'20px',fontSize:'1rem'}}>中文</a>
                             <Search
                                 placeholder="Enter search text."
-                                onSearch={value => console.log(value)}
+                                onSearch={this.mySearch}
                             />
                         </div>
                         <Button className={this.props.mobileButtonOn} onClick={mobileOpen}><Icon type="menu-fold" /></Button>

@@ -54,6 +54,8 @@ class NewsList extends Component {
     render() {
         if(this.state.loading)
             return (<div className="loading-spin"><Spin size="large" /></div>);
+        else if(this.state.error)
+            return(<div>No article found...</div>)
         else
         {
             const newsItems = this.state.posts.map(

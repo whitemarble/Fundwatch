@@ -6,6 +6,7 @@ import HomeLoans from './pages/HomeLoans';
 import SinglePost from './pages/SinglePost';
 import PostCategory from './pages/PostCategory';
 import NoMatch from './pages/NoMatch';
+import Search from './pages/Search';
 
 
 class Page extends Component {
@@ -18,6 +19,7 @@ class Page extends Component {
                     <Route path="/home-loans" component={HomeLoans} />
                     <Route path="/article/:slug" component={SinglePost} />
                     <Route path="/category/:slug" component={PostCategory} />
+                    <Route path="/search/:keyword" component={Search} />
                     <Route component={NoMatch}/>
                 </Switch>
             </div>

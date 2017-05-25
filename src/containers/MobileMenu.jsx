@@ -5,6 +5,7 @@ import flagCN from '../../public/assets/img/flagCN.png';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {MMclicked} from '../actions/MenuActions';
+import { createBrowserHistory } from 'history';
 
 
 import './MobileMenu.css';
@@ -12,6 +13,11 @@ import './MobileMenu.css';
 const Search = Input.Search;
 
 class MobileMenu extends Component {
+    mySearch = (value)=>{
+        let history = createBrowserHistory();
+        history.push("/search/"+value);
+        history.go()
+    }
     render() {
         const{mmclicked} = this.props;
         return (
@@ -29,7 +35,7 @@ class MobileMenu extends Component {
                 </Menu>
                 <Search
                     placeholder="Enter search text."
-                    onSearch={mmclicked}
+                    onSearch={this.mySearch}
                 />
             </div>
         );
