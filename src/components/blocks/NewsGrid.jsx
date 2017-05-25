@@ -5,7 +5,6 @@ import { Spin } from 'antd';
 import NewsBlockBig from './basic/NewsBlockBig';
 import './NewsGrid.css';
 
-import {WP} from '../../WP';
 
 
 
@@ -18,7 +17,7 @@ class NewsGrid extends Component {
     componentDidMount(){
         this.props.posts.then(
                 data => {
-                    console.log(data);
+                    //console.log(data);
                     this.setState({loading: false, posts: data});
                 }
             ).catch(
@@ -34,8 +33,8 @@ class NewsGrid extends Component {
         {
             const posts = this.state.posts.map(
                 (post) =>{
-                    console.log(post._embedded["wp:featuredmedia"]);
-                    if(post._embedded["wp:featuredmedia"] != undefined){
+                    //console.log(post._embedded["wp:featuredmedia"]);
+                    if(post._embedded["wp:featuredmedia"] !== undefined){
                         return(
                         <Col xs={24} md={8} key={post.id}>
                             <NewsBlockBig title={post.title.rendered}

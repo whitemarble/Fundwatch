@@ -15,16 +15,16 @@ class NewsTabs extends Component {
         return (
             <Tabs defaultActiveKey="1" onChange={callback} style={{marginTop:'20px'}}>
                 <TabPane tab="Video" key="1">
-                    <NewsList posts={WP.posts().param('categories',4).param('per_page',5).embed()}/>
+                    <NewsList current="1" pagesize="6" category="4" posts={WP.posts().param('categories',4).perPage(6).page(1).embed()}/>
                 </TabPane>
                 <TabPane tab="News" key="2">
-                    <NewsList posts={WP.posts().param('categories',5).param('per_page',5).embed()}/>
+                    <NewsList current="1" pagesize="6" category="5" posts={WP.posts().param('categories',5).perPage(6).page(1).embed()}/>
                 </TabPane>
                 <TabPane tab="Sports" key="3">
-                    <NewsList posts={WP.posts().param('categories',6).param('per_page',5).embed()}/>
+                    <NewsList current="1" pagesize="6" category="6" posts={WP.posts().param('categories',6).perPage(6).page(1).embed()}/>
                 </TabPane>
                 <TabPane tab="Music" key="4">
-                    <NewsList posts={WP.posts().param('categories',7).param('per_page',5).embed()}/>
+                    <NewsList current="1" pagesize="6" category="7" posts={WP.posts().param('categories',7).perPage(6).page(1).embed()}/>
                 </TabPane>
             </Tabs>
         );

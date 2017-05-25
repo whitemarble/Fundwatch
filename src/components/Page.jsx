@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import {Router, Route, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import Home from './pages/Home';
 import News from './pages/News';
 import HomeLoans from './pages/HomeLoans';
 import SinglePost from './pages/SinglePost';
 import PostCategory from './pages/PostCategory';
 import NoMatch from './pages/NoMatch';
+
 
 class Page extends Component {
     render() {

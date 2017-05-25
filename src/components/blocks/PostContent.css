@@ -44,5 +44,6 @@
 
 
 .post-meta .category{
-    float:right
+    float:right;
+    text-transform: uppercase
 }

@@ -19,8 +19,7 @@ class SinglePost extends Component {
 
                 <Col xs={0} sm={8} lg={6} className="sidebar">
                     <NewsCatWidget />
-                    <NewsListWidget />
-                    <NewsListWidget />
+                    <NewsListWidget title="Recent News" link="/news" posts={WP.posts().param('per_page',5).embed()}/>
                 </Col>
             </Row>
         );

@@ -17,7 +17,7 @@ class TopNews extends Component {
         this.props.posts.then(
                 data => {
                     this.setState({loading: false, posts: data})
-                    console.log(data)
+                    //console.log(data)
                 }
             ).catch(
                 error => this.setState({loading: false, error: error})
@@ -34,8 +34,8 @@ class TopNews extends Component {
         {
             const posts = this.state.posts.map(
                 (post) =>{
-                    console.log(post._embedded["wp:featuredmedia"]);
-                    if(post._embedded["wp:featuredmedia"] != undefined){
+                    //console.log(post._embedded["wp:featuredmedia"]);
+                    if(post._embedded["wp:featuredmedia"] !== undefined){
                         return(
                         <div key={post.id}>
                             <NewsBlockBig title={post.title.rendered}

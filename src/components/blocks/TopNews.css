@@ -6,3 +6,7 @@
     height:5px;
     width: 48px
 }
+
+.ant-carousel .slick-dots{
+    bottom:20px
+}

@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 
 import NoMatch from '../pages/NoMatch';
 
-import {WP} from '../../WP';
 import './PostContent.css'
 
 class PostContent extends Component {
@@ -18,12 +17,24 @@ class PostContent extends Component {
     componentDidMount(){
         this.props.post.then(
                 data => {
-                    this.setState({loading: false, post: data})
-                    console.log(data)
+                    const mydate = new Date(data[0].date)
+                    this.setState({loading: false, post: data, date:mydate.toLocaleDateString()+" "+mydate.toLocaleTimeString()})
                 }
             ).catch(
                 error => this.setState({loading: false, error: error})
             );     
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({loading:true})
+        nextProps.post.then(
+                data => {
+                    this.setState({loading: false, post: data})
+                    //console.log(data)
+                }
+            ).catch(
+                error => this.setState({loading: false, error: error})
+            );  
     }
 
     render() {
@@ -32,8 +43,8 @@ class PostContent extends Component {
         else if(this.state.error)
             return(<NoMatch/>)
         else{
-            const postImg = null;
-            if(this.state.post[0]._embedded["wp:featuredmedia"] != undefined)
+            let postImg = null;
+            if(this.state.post[0]._embedded["wp:featuredmedia"] !== undefined)
                 postImg = this.state.post[0]._embedded["wp:featuredmedia"][0]
             return (
                 <div>
@@ -44,7 +55,7 @@ class PostContent extends Component {
                         <Breadcrumb.Item>{this.state.post[0].title.rendered}</Breadcrumb.Item>
                     </Breadcrumb>
                     <div className="post-meta">
-                        <Icon type="clock-circle-o" /> {this.state.post[0].date} | <Icon type="user" /> by: {this.state.post[0]._embedded["author"][0].name}
+                        <Icon type="clock-circle-o" /> {this.state.date} | <Icon type="user" /> by: {this.state.post[0]._embedded["author"][0].name}
                         <Link to={"/category/"+this.state.post[0]._embedded["wp:term"][0][0].slug} className="category"><Tag color="#3264ae">{this.state.post[0]._embedded["wp:term"][0][0].name}</Tag></Link>
                     </div>
                     <div className="post-image">

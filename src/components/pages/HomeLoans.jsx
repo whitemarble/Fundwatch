@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import WP from '../../WP';
 
 class HomeLoans extends Component {
     render() {

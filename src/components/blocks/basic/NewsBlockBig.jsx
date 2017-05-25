@@ -4,8 +4,6 @@ import {Link} from 'react-router-dom';
 import WPimg from './WPimg';
 import PostType from './PostType';
 
-import {WP} from '../../../WP';
-import ImgHolder from '../../../../public/assets/img/img.svg';
 class NewsBlockBig extends Component {
     
     render() {
