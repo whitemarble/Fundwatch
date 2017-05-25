@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {BrowserRouter as Router,browserHistory} from 'react-router-dom';
 
-import { Layout } from 'antd';
+import { Layout,BackTop } from 'antd';
 
 import './App.css';
 import Page from './components/Page';
@@ -29,8 +29,10 @@ class App extends Component {
           </Content>
           <Footer style={{marginTop:"30px"}}>
             <FooterContent />
+            <BackTop />
           </Footer>
         </Layout>
+        
       </Router>
     );
   }

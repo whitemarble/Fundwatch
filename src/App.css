@@ -25,6 +25,14 @@
     margin-top:20%;
 }
 
+.ant-back-top-content{
+    background-color:#3264ae
+}
+
+.ant-back-top-content:hover{
+    background-color:#6389c1
+}
+
 
 @media screen and (max-width: 767px) {
     .container{
