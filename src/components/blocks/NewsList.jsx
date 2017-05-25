@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {Spin, Pagination} from 'antd';
-import {bindActionCreators} from 'redux';
-import { connect } from 'react-redux';
 
 import './NewsList.css';
 import NewsListItem from './basic/NewsListItem';
